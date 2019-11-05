@@ -1,0 +1,83 @@
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+@bgColorHtml: pink;
+@bgColorBody: #fff;
+@fontFamilyBody: calibri, serif;
+
+
+html {
+  background-color: @backgroundColor;
+  overflow-y: scroll;
+}
+
+// main {
+//   min-height: 20em;
+// }
+
+body {
+    #desinax-hgrid.font(@fontSizeBody);
+  background-color: @bgColorBody;
+  // font-family: @fontFamilyBody;
+}
+
+// Activate grid and affect all typographic elements
+#desinax-hgrid.activateDefaultTypography();
+
+li {
+  list-style-type: none;
+}
+
+ul {
+    padding: 0;
+  list-style: none;
+}
+
+figure.figure.right {
+  float: right;
+  padding: 10px;
+}
+
+figure.figure.left {
+  float: left;
+  padding: 10px;
+}
+
+figure img {
+    border: 1px double white;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: small;
+}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    #desinax-vgrid.grid(@columns);
+}
+
+p {
+    color: @textColor;
+}
+
+h1, h2, h3, h4 {
+    color: @textColor;
+    a {
+        color: @textColor;
+        &:hover {
+            color: @textColor;
+        }
+    }
+}
+
+::selection {
+  background: @footerColor; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: @footerColor; /* Gecko Browsers */
+}
