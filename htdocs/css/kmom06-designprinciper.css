@@ -1,7 +1,7 @@
 /*!
- * Stylesheet for ramverk1.
+ * Stylesheet for design kmom06, design principles.
  *
- * This stylesheet is for the ramverk1 course.
+ * This stylesheet is for the design course and kmom06 where we work with design elements
  */
 /**
    * Normalize and reset the style.
@@ -4998,12 +4998,12 @@ a.rm-button.rm-clicked .rm-button-face-2 {
  * Base style to affect HTML elements on a general scale.
  */
 html {
+  background-color: #79354A;
   overflow-y: scroll;
-  background-color: #3E606F;
 }
 body {
   font: 16px/1.375 'Catamaran', sans-serif;
-  background-color: #fff;
+  background-color: #846767;
 }
 h1,
 h2,
@@ -5298,11 +5298,12 @@ ul {
 }
 figure.figure.right {
   float: right;
-  padding: 10px;
+  padding-left: 10px;
 }
 figure.figure.left {
   float: left;
-  padding: 10px;
+  padding-right: 10px;
+  padding: 1em;
 }
 figure img {
   border: 1px double white;
@@ -5318,6 +5319,7 @@ figure {
   margin-right: auto;
   margin-left: auto;
   max-width: 24;
+  margin-block-start: 0em;
 }
 p {
   color: #D1DBBD;
@@ -5341,12 +5343,16 @@ h4 a:hover {
   color: #D1DBBD;
 }
 ::selection {
-  background: #193441;
+  background: #846767;
   /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #193441;
+  background: #846767;
   /* Gecko Browsers */
+}
+b {
+  color: #C9B636;
+  text-align: center;
 }
 /**
   * Import the vertical grid.
@@ -5438,7 +5444,6 @@ h4 a:hover {
   width: 19.79166667%;
   margin-left: 0.52083333%;
   margin-right: 0.52083333%;
-  background-color: #3E606F;
 }
 .region-header-col-2 {
   display: inline;
@@ -5446,7 +5451,6 @@ h4 a:hover {
   width: 73.95833333%;
   margin-left: 0.52083333%;
   margin-right: 0.52083333%;
-  background-color: #3E606F;
 }
 .region-header-col-1 a {
   text-decoration: none;
@@ -5465,9 +5469,6 @@ h4 a:hover {
 }
 .my-navbar li {
   list-style-type: none;
-}
-.rm-navbar {
-  text-align: center;
 }
 /**
 * Footer
@@ -5493,11 +5494,10 @@ h4 a:hover {
 * Byline
 */
 .author-byline {
-  margin-top: 10em;
+  margin-top: 3em;
   border-style: solid;
   border-width: thin;
   height: 185px;
-  padding: 1em;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
 }
 .author-byline a {
@@ -5638,34 +5638,72 @@ h4 a:hover {
     width: 533.33333333px;
   }
 }
-.outer-wrap-header,
-.inner-wrap-header,
-.region-header-col-1,
-.region-header-col-2,
-.region-header-col-2 {
-  animation: pulsate-bg 10s linear infinite;
-  height: 50px;
-  border-bottom: white solid 1px;
+.region-header-col-1:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(4px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-8px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(8px, 0, 0);
+  }
+}
+.outer-wrap-footer,
+.inner-wrap-footer,
+.region-footer {
+  animation: pulsate-bg 5s ease-in 2s infinite alternate;
 }
 @keyframes pulsate-bg {
   0% {
-    background-color: #3E606F;
+    background-color: #79354A;
   }
   50% {
-    background-color: #193441;
+    background-color: #846767;
   }
   100% {
-    background-color: #3E606F;
+    background-color: #79354A;
   }
 }
+.TIL {
+  background-color: #792036;
+  color: #D1DBBD;
+  border: 1px dotted white;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+.outer-wrap-header,
+.inner-wrap-header {
+  background-color: #846767;
+}
+.outer-wrap-header {
+  border-bottom: 1px solid white;
+}
+/**
+* Layout using vgrid
+*/
 /**
 * General layout
 */
 .wrap-all {
-  background-color: #3E606F;
-}
-.inner-wrap {
-  background-color: #3E606F;
+  background-color: #79354A;
 }
 /**
 * Header
@@ -5681,10 +5719,10 @@ h4 a:hover {
   color: #D1DBBD;
 }
 .my-navbar a {
-  color: #1e003f;
+  color: #C9B636;
 }
 .my-navbar a:link {
-  color: #1e003f;
+  color: #C9B636;
 }
 .my-navbar a:hover {
   background-color: #fff;
@@ -5697,19 +5735,14 @@ h4 a:hover {
   background-color: #fff;
 }
 .rm-default li li {
-  background-color: #3E606F;
+  background-color: #79354A;
   color: #D1DBBD;
 }
 /**
 * Footer
 */
 .region-footer a {
-  color: #1e003f;
-}
-.outer-wrap-footer,
-.inner-wrap-footer {
-  color: #D1DBBD;
-  background-color: #3E606F;
+  color: #C9B636;
 }
 .outer-wrap-footer {
   border-top: white solid 1px;
@@ -5717,37 +5750,33 @@ h4 a:hover {
 .region-footer {
   text-align: center;
 }
-.outer-wrap-footer {
-  padding-top: 22px;
-  padding-bottom: 44px;
-}
 /**
 * Byline
 */
 .author-byline {
   border-color: grey;
-  background-color: #3E606F;
+  background-color: #79354A;
 }
 .author-byline a {
-  color: #1e003f;
+  color: #C9B636;
 }
 /**
 * Sidebars
 */
 .wrap-sidebar a {
-  color: #1e003f;
+  color: #C9B636;
 }
 .region-breadcrumb a {
-  color: #1e003f;
+  color: #C9B636;
 }
 .next-previous a {
-  color: #1e003f;
+  color: #C9B636;
 }
 .next {
-  color: #1e003f;
+  color: #C9B636;
 }
 .previous {
-  color: #1e003f;
+  color: #C9B636;
 }
 /**
  * Layout for responsive style through media queries.

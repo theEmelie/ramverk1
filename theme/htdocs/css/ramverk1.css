@@ -1,7 +1,7 @@
 /*!
- * Stylesheet for design kmom06, design elements.
+ * Stylesheet for ramverk1.
  *
- * This stylesheet is for the design course and kmom06 where we work with design elements
+ * This stylesheet is for the ramverk1 course.
  */
 /**
    * Normalize and reset the style.
@@ -4998,8 +4998,8 @@ a.rm-button.rm-clicked .rm-button-face-2 {
  * Base style to affect HTML elements on a general scale.
  */
 html {
-  background-color: #3E606F;
   overflow-y: scroll;
+  background-color: #3E606F;
 }
 body {
   font: 16px/1.375 'Catamaran', sans-serif;
@@ -5704,18 +5704,22 @@ h4 a:hover {
 * Footer
 */
 .region-footer a {
-  Wcolor: #1e003f;
+  color: #1e003f;
 }
 .outer-wrap-footer,
 .inner-wrap-footer {
   color: #D1DBBD;
-  background-image: linear-gradient(#3E606F, #193441);
+  background-color: #3E606F;
 }
 .outer-wrap-footer {
   border-top: white solid 1px;
 }
 .region-footer {
   text-align: center;
+}
+.outer-wrap-footer {
+  padding-top: 22px;
+  padding-bottom: 44px;
 }
 /**
 * Byline

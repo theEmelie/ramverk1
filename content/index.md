@@ -1,7 +1,7 @@
 ---
-title: "Min fina titel"
+title: "Min me-sida"
 ---
-Min me-sida i kursen oophp.
+Min me-sida i kursen ramverk1.
 =========================
 
 

@@ -48,20 +48,27 @@
 /**
 * Footer
 */
-.region-footer a {W
+.region-footer a {
     color: @linkColor;
 }
 
 .outer-wrap-footer,
 .inner-wrap-footer {
     color: @textColor;
-    background-image: linear-gradient(@backgroundColor, @footerColor);
+    background-color: @backgroundColor;
 }
+
 .outer-wrap-footer {
     border-top: white solid 1px;
 }
+
 .region-footer {
     text-align: center;
+}
+
+.outer-wrap-footer {
+    padding-top: @magicNumber;
+    padding-bottom: @magicNumber * 2;
 }
 
 /**

@@ -7,40 +7,40 @@
 
 
 html {
-  background-color: @backgroundColor;
   overflow-y: scroll;
+  background-color: @backgroundColor;
 }
 
 // main {
-//   min-height: 20em;
+//   min-height: 100%;
 // }
 
 body {
     #desinax-hgrid.font(@fontSizeBody);
-  background-color: @bgColorBody;
-  // font-family: @fontFamilyBody;
+    background-color: @bgColorBody;
+    // font-family: @fontFamilyBody;
 }
 
 // Activate grid and affect all typographic elements
 #desinax-hgrid.activateDefaultTypography();
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 ul {
     padding: 0;
-  list-style: none;
+    list-style: none;
 }
 
 figure.figure.right {
-  float: right;
-  padding: 10px;
+    float: right;
+    padding: 10px;
 }
 
 figure.figure.left {
-  float: left;
-  padding: 10px;
+    float: left;
+    padding: 10px;
 }
 
 figure img {
@@ -75,9 +75,9 @@ h1, h2, h3, h4 {
 }
 
 ::selection {
-  background: @footerColor; /* WebKit/Blink Browsers */
+    background: @footerColor; /* WebKit/Blink Browsers */
 }
 
 ::-moz-selection {
-  background: @footerColor; /* Gecko Browsers */
+    background: @footerColor; /* Gecko Browsers */
 }
