@@ -5,7 +5,7 @@
 return [
     // Use for styling the menu
     "class" => "my-navbar",
- 
+
     // Here comes the menu items/structure
     "items" => [
         [
@@ -32,6 +32,25 @@ return [
             "text" => "Verktyg",
             "url" => "verktyg",
             "title" => "Verktyg och möjligheter för utveckling.",
+        ],
+        [
+            "text" => "Validera Ip",
+            "url" => "ip",
+            "title" => "Validera Ip adresser.",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Ip Validering",
+                        "url" => "ip",
+                        "title" => "Validera Ip",
+                    ],
+                    [
+                        "text" => "JSON Validering",
+                        "url" => "jsonValidate",
+                        "title" => "Validera JSON",
+                    ],
+                ],
+            ],
         ],
     ],
 ];

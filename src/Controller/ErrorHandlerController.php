@@ -24,6 +24,7 @@ class ErrorHandlerController implements ContainerInjectableInterface
      * @throws Anax\Route\Exception\NotFoundException
 
      * @return object as the response.
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function catchAll(...$args) : object
     {

@@ -5340,6 +5340,9 @@ h3 a:hover,
 h4 a:hover {
   color: #D1DBBD;
 }
+a {
+  color: #1e003f;
+}
 ::selection {
   background: #193441;
   /* WebKit/Blink Browsers */
@@ -5347,6 +5350,26 @@ h4 a:hover {
 ::-moz-selection {
   background: #193441;
   /* Gecko Browsers */
+}
+.getPost {
+  font-size: 25px;
+}
+label {
+  color: #D1DBBD;
+}
+code {
+  background-color: #ccc;
+}
+.line {
+  border-bottom: 1px solid #D1DBBD;
+  margin-top: 20px;
+}
+.codes {
+  background-color: #ccc;
+  padding: 10px;
+}
+.getPostResult {
+  font-size: 20px;
 }
 /**
   * Import the vertical grid.
