@@ -16,11 +16,12 @@ class JsonController implements ContainerInjectableInterface
     public function indexAction()
     {
         $page = $this->di->get("page");
+        $request = $this->di->get("request");
 
         $title = "Ip Validering";
 
         $json = [
-            "ip" => "",
+            "ip" => $request->getServer("REMOTE_ADDR", ""),
             "domain" => "",
             "valid" => "",
             "status" => "",

@@ -7,7 +7,7 @@ namespace Anax\View;
 
 <form method="post">
     <label>IP Adress:<br />
-        <input type="text" name="ip"/>
+        <input type="text" name="ip" value="<?= $json["ip"] ?>"/>
         <input type="submit" name="validate" value="Validera Ip">
     </label>
 </form>
