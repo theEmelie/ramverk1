@@ -55,7 +55,7 @@ class IpValidatorControllerTest extends TestCase
         $body = $res->getBody();
         $exp = "8.8.8.8 är en giltig ipv4 adress.";
         $this->assertContains($exp, $body);
-        $exp = "Domän namn: dns.google";
+        $exp = "dns.google";
         $this->assertContains($exp, $body);
     }
 
@@ -66,7 +66,7 @@ class IpValidatorControllerTest extends TestCase
         $body = $res->getBody();
         $exp = "2620:119:35::35 är en giltig ipv6 adress.";
         $this->assertContains($exp, $body);
-        $exp = "Domän namn: resolver1.opendns.com";
+        $exp = "resolver1.opendns.com";
         $this->assertContains($exp, $body);
     }
 

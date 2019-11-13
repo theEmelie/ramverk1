@@ -101,3 +101,37 @@
 .previous {
     color: @linkColor;
 }
+
+/**
+* Tables
+*/
+table {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    border: 1px solid cadetblue;
+    width: 100%;
+    color: #f0f0f0;
+}
+
+tr:first-child {
+    background-color: #2e505f;
+}
+
+tr:hover,
+tr:nth-child(even):hover {
+    background-color: cadetblue;
+}
+
+th {
+    font-weight: bold;
+    border-bottom: 1px solid cadetblue;
+}
+
+th,
+td {
+    padding: 7px;
+}
+
+tr:nth-child(even) {
+    background-color: #4e707f;
+}

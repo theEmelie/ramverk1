@@ -5002,7 +5002,7 @@ html {
   background-color: #3E606F;
 }
 body {
-  font: 16px/1.375 'Catamaran', sans-serif;
+  font: 16px/1.375 'Assistant', sans-serif;
   background-color: #fff;
 }
 h1,
@@ -5776,6 +5776,34 @@ code {
   color: #FF66B2;
 }
 /**
+* Tables
+*/
+table {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  border: 1px solid cadetblue;
+  width: 100%;
+  color: #f0f0f0;
+}
+tr:first-child {
+  background-color: #2e505f;
+}
+tr:hover,
+tr:nth-child(even):hover {
+  background-color: cadetblue;
+}
+th {
+  font-weight: bold;
+  border-bottom: 1px solid cadetblue;
+}
+th,
+td {
+  padding: 7px;
+}
+tr:nth-child(even) {
+  background-color: #4e707f;
+}
+/**
  * Layout for responsive style through media queries.
  */
 @media screen and (max-width: 1500px) {
@@ -5847,8 +5875,9 @@ code {
   src: url(https://fonts.gstatic.com/s/quicksand/v19/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58a-xw.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Catamaran';
+  font-family: 'Assistant';
   font-style: normal;
   font-weight: 400;
-  src: local('Catamaran Regular'), local('Catamaran-Regular'), url(https://fonts.gstatic.com/s/catamaran/v6/o-0IIpQoyXQa2RxT7-5r5TRF.ttf) format('truetype');
+  font-display: swap;
+  src: local('Assistant'), local('Assistant-Regular'), url(https://fonts.gstatic.com/s/assistant/v4/2sDcZGJYnIjSi6H75xkzaGW8.ttf) format('truetype');
 }

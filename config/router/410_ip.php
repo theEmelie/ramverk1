@@ -1,6 +1,6 @@
 <?php
 /**
- * Load the stylechooser as a controller class.
+ * A controller class.
  */
 return [
     "routes" => [
