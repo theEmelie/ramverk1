@@ -2,6 +2,8 @@
 
 namespace Anax\Models;
 
+use Anax\Config\tokens;
+
 class IpValidate
 {
     public function validate($ips)

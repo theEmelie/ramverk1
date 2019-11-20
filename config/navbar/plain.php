@@ -52,5 +52,24 @@ return [
                 ],
             ],
         ],
+        [
+            "text" => "Väderprognos",
+            "url" => "geoWeather",
+            "title" => "Väderprognos.",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Väderprogrnos",
+                        "url" => "geoWeather",
+                        "title" => "Väderprognos",
+                    ],
+                    [
+                        "text" => "Väderprognos JSON",
+                        "url" => "geoWeatherJson",
+                        "title" => "Väderprognos JSON",
+                    ],
+                ],
+            ],
+        ],
     ],
 ];
