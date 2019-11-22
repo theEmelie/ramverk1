@@ -18,7 +18,7 @@ class Weather
         $accessKey = $this->keys['darksky'];
 
         if ($weather == "futureWeather") {
-            $darkSkyUrl = 'https://api.darksky.net/forecast/' . $accessKey . "/" . $lat . "," . $long . "?units=si";
+            $darkSkyUrl = 'https://api.darksky.net/forecast/' . $accessKey . "/" . $lat . "," . $long . "?units=si&lang=sv";
             $curlObj = new Curl;
             $darkSkyData = json_decode($curlObj->curl($darkSkyUrl));
         } else {
@@ -27,7 +27,7 @@ class Weather
             for ($i = 0; $i < $numberOfDays; $i++) {
                 $timestr = "-" . $i . " day";
                 $time = strtotime($timestr, time());
-                $urls[$i] = 'https://api.darksky.net/forecast/' . $accessKey . "/" . $lat . "," . $long . "," . $time . "?units=si";
+                $urls[$i] = 'https://api.darksky.net/forecast/' . $accessKey . "/" . $lat . "," . $long . "," . $time . "?units=si&lang=sv";
             }
             // var_dump($urls);
             $curlObj = new Curl;
