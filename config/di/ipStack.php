@@ -8,7 +8,7 @@ return [
         "apiIpStack" => [
             "shared" => true,
             "callback" => function () {
-                $ipStackModel = new \Anax\Models\ipValidate();
+                $ipStackModel = new \Anax\Models\IpValidate();
 
                 // Load the configuration files
                 $cfg = $this->get("configuration");

@@ -19,8 +19,8 @@ namespace Anax\View;
 </form>
 
 <h3>Testroutes och Användning</h3>
-<p>Ip Adress: <a href="/dbwebb-kurser/ramverk1/me/redovisa/htdocs/geoWeatherJson/weatherCheck?location=8.8.8.8&weather=futureWeather">Google DNS</a><br />
-Longitude, Latitude: <a href="/dbwebb-kurser/ramverk1/me/redovisa/htdocs/geoWeatherJson/weatherCheck?location=48.8584,-2.2945&weather=futureWeather">Eiffeltornet</a></p>
+<p>Ip Adress: <a href="/~emau18/dbwebb-kurser/ramverk1/me/redovisa/htdocs/geoWeatherJson/weatherCheck?location=8.8.8.8&weather=futureWeather">Google DNS</a><br />
+Longitude, Latitude: <a href="/~emau18/dbwebb-kurser/ramverk1/me/redovisa/htdocs/geoWeatherJson/weatherCheck?location=48.8584,-2.2945&weather=futureWeather">Eiffeltornet</a></p>
 
 <div class="line"></div>
 

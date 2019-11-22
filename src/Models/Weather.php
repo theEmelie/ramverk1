@@ -23,7 +23,7 @@ class Weather
             $darkSkyData = json_decode($curlObj->curl($darkSkyUrl));
         } else {
             // Past weather
-            $numberOfDays = 2;
+            $numberOfDays = 30;
             for ($i = 0; $i < $numberOfDays; $i++) {
                 $timestr = "-" . $i . " day";
                 $time = strtotime($timestr, time());
