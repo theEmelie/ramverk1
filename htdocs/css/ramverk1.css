@@ -5375,6 +5375,9 @@ code {
 .getPostResult {
   font-size: 20px;
 }
+.locationData {
+  font-size: 20px;
+}
 /**
   * Import the vertical grid.
   */

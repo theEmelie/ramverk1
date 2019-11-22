@@ -6,7 +6,7 @@ use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test the SampleJsonController.
+ * Test the IpValidatorController.
  */
 class IpValidatorControllerTest extends TestCase
 {
@@ -37,7 +37,7 @@ class IpValidatorControllerTest extends TestCase
         // Setup the controller
         $this->controller = new IpAdressController();
         $this->controller->setDI($this->di);
-        // $this->controller->initialize();
+        $this->controller->initialize();
     }
 
     public function testIndexActionGet()

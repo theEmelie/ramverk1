@@ -6,7 +6,6 @@ use Anax\Models;
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
 
-
 /**
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
@@ -15,6 +14,14 @@ class GeoWeatherController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
+    private $darksky;
+    private $ipstack;
+
+    public function initialize()
+    {
+        $this->darksky = $this->di->get('apiDarkSky');
+        $this->ipstack = $this->di->get('apiIpStack');
+    }
 
     public function indexActionGet()
     {
@@ -39,6 +46,10 @@ class GeoWeatherController implements ContainerInjectableInterface
         ]);
     }
 
+    /**
+     *
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     */
     public function indexActionPost()
     {
         $title = "Väderprognos";
@@ -47,20 +58,24 @@ class GeoWeatherController implements ContainerInjectableInterface
         $location = $request->getPost("location");
         $futureOrPast = $request->getPost("weather");
 
-        $ipAdress = new Models\IpValidate;
-        $weather = new Models\Weather;
+        $json = $this->ipstack->validate($location);
 
-        $json = $ipAdress->validate($location);
+        $lat = "";
+        $long = "";
 
         if ($json["valid"] == true) {
-            $weatherJson = $weather->getWeatherGeo($json["ipStackData"]->{"latitude"}, $json["ipStackData"]->{"longitude"}, $futureOrPast);
+            $lat = $json["ipStackData"]->{"latitude"};
+            $long = $json["ipStackData"]->{"longitude"};
+            $weatherJson = $this->darksky->getWeatherGeo($lat, $long, $futureOrPast);
             $dataExists = true;
             $status = "";
         } else {
             $latLong = explode(",", $location);
-            if (count($latLong) == 2 && is_int($latLong[0]) && is_int($latLong[1])) {
+            if (count($latLong) == 2 && is_numeric($latLong[0]) && is_numeric($latLong[1])) {
                 if ($latLong[0] <= 90 && $latLong[0] >= -90 && $latLong[1] >= -180 && $latLong[1] <= 180) {
-                    $weatherJson = $weather->getWeatherGeo($latLong[0], $latLong[1], $futureOrPast);
+                    $lat = trim($latLong[0]);
+                    $long = trim($latLong[1]);
+                    $weatherJson = $this->darksky->getWeatherGeo($lat, $long, $futureOrPast);
                     $dataExists = true;
                     $status = "";
                 } else {
@@ -75,10 +90,17 @@ class GeoWeatherController implements ContainerInjectableInterface
             }
         }
 
+        if ($dataExists == true) {
+            $mapCode = "var latitude = $lat; var longitude = $long;";
+        } else {
+            $mapCode = "";
+        }
+
         $page->add("weather/showWeather", [
             "weatherJson" => $weatherJson,
             "dataExists" => $dataExists,
             "status" => $status,
+            "mapCode" => $mapCode,
         ]);
 
         return $page->render([

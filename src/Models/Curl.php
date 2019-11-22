@@ -17,14 +17,21 @@ class Curl
           return $json;
     }
 
-    public function multiCurl($urls) {
+    /**
+     *
+     * @SuppressWarnings(PHPMD.ShortVariable)
+     */
+    public function multiCurl($urls)
+    {
         $cHandles = [];
 
         //create the multiple cURL handle
         $mh = curl_multi_init();
 
+        $count = count($urls);
+
         // set URL and other appropriate options
-        for ($i = 0; $i < count($urls); $i++) {
+        for ($i = 0; $i < $count; $i++) {
             $cHandles[$i] = curl_init();
             curl_setopt($cHandles[$i], CURLOPT_RETURNTRANSFER, true);
             curl_setopt($cHandles[$i], CURLOPT_URL, $urls[$i]);
@@ -42,11 +49,12 @@ class Curl
         } while ($active && $status == CURLM_OK);
 
         $json = [];
-        for ($i=0; $i < count($cHandles); $i++) {
+        $countCHandles = count($cHandles);
+        for ($i=0; $i < $countCHandles; $i++) {
             array_push($json, curl_multi_getcontent($cHandles[$i]));
         }
 
-        for ($i = 0; $i < count($urls); $i++) {
+        for ($i = 0; $i < $count; $i++) {
             curl_multi_remove_handle($mh, $cHandles[$i]);
         }
 

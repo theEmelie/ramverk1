@@ -2,20 +2,28 @@
 
 namespace Anax\Models;
 
+use Anax\Config\apiTokens;
+
 class Weather
 {
+    private $keys;
+
+    public function setKeys($keyData)
+    {
+        $this->keys = $keyData;
+    }
+
     public function getWeatherGeo($lat, $long, $weather)
     {
-        $accessKey = 'd64f9e8764e614f8e8b2f72bfe680af0';
+        $accessKey = $this->keys['darksky'];
 
         if ($weather == "futureWeather") {
             $darkSkyUrl = 'https://api.darksky.net/forecast/' . $accessKey . "/" . $lat . "," . $long . "?units=si";
             $curlObj = new Curl;
             $darkSkyData = json_decode($curlObj->curl($darkSkyUrl));
-
         } else {
             // Past weather
-            $numberOfDays = 30;
+            $numberOfDays = 2;
             for ($i = 0; $i < $numberOfDays; $i++) {
                 $timestr = "-" . $i . " day";
                 $time = strtotime($timestr, time());
@@ -29,11 +37,36 @@ class Weather
             }
         }
 
+        //Get location data
+        $locationUrl = "https://nominatim.openstreetmap.org/reverse?lat=$lat&lon=$long&email=theem@live.se&format=json";
+        $curlObj = new Curl;
+        $locationData = json_decode($curlObj->curl($locationUrl));
+
         $json = [
             "weather" => $weather,
             "darkSkyData" => $darkSkyData,
+            "locationData" => $locationData,
         ];
 
         return $json;
+    }
+
+    public function getDarkSkyWeather($lat, $long, $futureOrPast)
+    {
+        if ($lat <= 90 && $lat >= -90 && $long >= -180 && $long <= 180) {
+            $weatherJson = $this->getWeatherGeo($lat, $long, $futureOrPast);
+            $dataExists = true;
+            $status = "";
+        } else {
+            $weatherJson = "";
+            $dataExists = false;
+            $status = "Okänd plats";
+        }
+
+        return [
+            "weatherJson" => $weatherJson,
+            "dataExists" => $dataExists,
+            "status" => $status,
+        ];
     }
 }

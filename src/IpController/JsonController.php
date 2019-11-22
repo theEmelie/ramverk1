@@ -13,6 +13,13 @@ class JsonController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
+    private $ipstack;
+
+    public function initialize()
+    {
+        $this->ipstack = $this->di->get('apiIpStack');
+    }
+
     public function indexAction()
     {
         $page = $this->di->get("page");
@@ -41,9 +48,7 @@ class JsonController implements ContainerInjectableInterface
         $request = $this->di->get("request");
         $ips = $request->getPost("ip");
 
-        $ipAdress = new Models\IpValidate;
-
-        $json = $ipAdress->validate($ips);
+        $json = $this->ipstack->validate($ips);
 
         return json_encode($json);
     }
@@ -53,9 +58,7 @@ class JsonController implements ContainerInjectableInterface
         $request = $this->di->get("request");
         $ips = $request->getGet("ip");
 
-        $ipAdress = new Models\IpValidate;
-
-        $json = $ipAdress->validate($ips);
+        $json = $this->ipstack->validate($ips);
 
         return json_encode($json);
     }

@@ -59,7 +59,7 @@ return [
             "submenu" => [
                 "items" => [
                     [
-                        "text" => "Väderprogrnos",
+                        "text" => "Väderprognos",
                         "url" => "geoWeather",
                         "title" => "Väderprognos",
                     ],

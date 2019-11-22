@@ -2,17 +2,24 @@
 
 namespace Anax\Models;
 
-use Anax\Config\tokens;
+use Anax\Config\apiTokens;
 
 class IpValidate
 {
+    private $keys;
+
+    public function setKeys($keyData)
+    {
+        $this->keys = $keyData;
+    }
+
     public function validate($ips)
     {
         $valid = "";
         $domain = "";
         $status = "";
         $ipStackData = "";
-        $accessKey = 'a5be17bdd41b97453018da83e4708650';
+        $accessKey = $this->keys['ipstack'];
 
         if (filter_var($ips, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             $status = $ips . " är en giltig ipv4 adress.";

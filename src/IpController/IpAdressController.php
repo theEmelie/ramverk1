@@ -13,6 +13,13 @@ class IpAdressController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
+    private $ipstack;
+
+    public function initialize()
+    {
+        $this->ipstack = $this->di->get('apiIpStack');
+    }
+
     public function indexActionGet()
     {
         $page = $this->di->get("page");
@@ -43,9 +50,7 @@ class IpAdressController implements ContainerInjectableInterface
         $page = $this->di->get("page");
         $ips = $request->getPost("ip");
 
-        $ipAdress = new Models\IpValidate;
-
-        $json = $ipAdress->validate($ips);
+        $json = $this->ipstack->validate($ips);
 
         $page->add("ip/ipCheck", [
             "json" => $json,
