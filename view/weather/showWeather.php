@@ -63,7 +63,8 @@ namespace Anax\View;
     <?php
     if ($dataExists == true) {
         if ($weatherJson["weather"] == "futureWeather") {
-            foreach ($weatherJson["darkSkyData"]->{"daily"}->{"data"} as $dailyWeather) { ?>
+            if (property_exists($weatherJson["darkSkyData"], "daily")) {
+                foreach ($weatherJson["darkSkyData"]->{"daily"}->{"data"} as $dailyWeather) { ?>
     <tr>
         <td><?= Date("l", $dailyWeather->{"time"}) ?></td>
         <td><?= Date("d/m/Y", $dailyWeather->{"time"}) ?></td>
@@ -71,17 +72,31 @@ namespace Anax\View;
         <td align="center"><?= round($dailyWeather->{"temperatureMin"}) . " - " . round($dailyWeather->{"temperatureMax"}) ?></td>
         <td align="center"><?= round($dailyWeather->{"windSpeed"}) ?></td>
     </tr>
+                <?php }
+            } else {
+                ?>
+            <tr>
+                <td colspan="5" align="center">Daglig användning överskriden för DarkSky</td>
+            </tr>
             <?php }
         } else {
             foreach ($weatherJson["darkSkyData"] as $dailyWeather) { ?>
     <tr>
+                <?php if (is_object($dailyWeather) && property_exists($dailyWeather, "daily")) { ?>
         <td><?= Date("l", $dailyWeather->{"daily"}->{"data"}[0]->{"time"}) ?></td>
         <td><?= Date("d/m/Y", $dailyWeather->{"daily"}->{"data"}[0]->{"time"}) ?></td>
         <td><?= property_exists($dailyWeather->{"daily"}->{"data"}[0], "summary") ? $dailyWeather->{"daily"}->{"data"}[0]->{"summary"} : "-" ?></td>
         <td align="center"><?= round($dailyWeather->{"daily"}->{"data"}[0]->{"temperatureMin"}) . " - " . round($dailyWeather->{"daily"}->{"data"}[0]->{"temperatureMax"}) ?></td>
         <td align="center"><?= round($dailyWeather->{"daily"}->{"data"}[0]->{"windSpeed"}) ?></td>
     </tr>
-            <?php }
+                    <?php
+                } else {
+                    ?>
+            <tr>
+                <td colspan="5" align="center">Daglig användning överskriden för DarkSky</td>
+            </tr>
+                <?php }
+            }
         }
     } else { ?>
     <tr>
