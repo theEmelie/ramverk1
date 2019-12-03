@@ -126,7 +126,6 @@ class GeoWeatherController implements ContainerInjectableInterface
     public function catchAll(...$args)
     {
         // Deal with the request and send an actual response, or not.
-        //return __METHOD__ . ", \$db is {$this->db}, got '" . count($args) . "' arguments: " . implode(", ", $args);
         return;
     }
 }
