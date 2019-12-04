@@ -20,5 +20,5 @@ return [
     ];
 ```
 
-To get an api key for ipstack go onto https://ipstack.com/
+To get an api key for ipstack go onto https://ipstack.com/  
 To get an api key for darksky go onto https://darksky.net/dev
