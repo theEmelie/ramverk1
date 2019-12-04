@@ -6,19 +6,3 @@
 
 
 ### This is a part of the course ramverk1 at BTH.
-
-
-Note:
-If you wanna use this project you have to add apiTokens.php inside config/ with the following code:
-
-```
-namespace Anax\Config;
-
-return [
-    "ipstack" => 'apikey',
-    "darksky" => 'apikey',
-    ];
-```
-
-To get an api key for ipstack go onto https://ipstack.com/  
-To get an api key for darksky go onto https://darksky.net/dev
