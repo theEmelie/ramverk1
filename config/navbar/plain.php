@@ -65,7 +65,7 @@ return [
                     ],
                     [
                         "text" => "Väderprognos JSON",
-                        "url" => "geoWeatherJson",
+                        "url" => "weatherJson",
                         "title" => "Väderprognos JSON",
                     ],
                 ],

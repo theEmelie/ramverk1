@@ -31,6 +31,7 @@ class WeatherJsonControllerTest extends TestCase
         $this->controller->setDI($this->di);
         $this->controller->initialize();
     }
+
     // Test inserting that body contains a string.
     public function testIndexActionGet()
     {
@@ -39,6 +40,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = "Kolla vädret med JSON format";
         $this->assertContains($exp, $body);
     }
+
     // Test inserting IPV4 adress with future weather
     public function testIndexActionPostIPV4()
     {
@@ -48,6 +50,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"futureWeather","darkSkyData":{"latitude":37.419158935547,"longitude":-122.07540893555,"timezone":"America\/Los_Angeles"';
         $this->assertContains($exp, $json);
     }
+
     // Test inserting IPV4 adress with past weather
     public function testIndexActionPostIPV4Past()
     {
@@ -57,6 +60,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"pastWeather","darkSkyData":[{"latitude":37.419158935547,"longitude":-122.07540893555,';
         $this->assertContains($exp, $json);
     }
+
     // Test inserting IPV6 adress with future weather
     public function testIndexActionPostIPV6()
     {
@@ -66,6 +70,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"futureWeather","darkSkyData":{"latitude":37.775001525879,"longitude":-122.41832733154';
         $this->assertContains($exp, $json);
     }
+
     // Test inserting IPV6 adress with past weather
     public function testIndexActionPostIPV6Past()
     {
@@ -75,6 +80,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"pastWeather","darkSkyData":[{"latitude":37.775001525879,"longitude":-122.41832733154,';
         $this->assertContains($exp, $json);
     }
+
     // Test inserting coordinates with future weather
     public function testIndexActionPostCord()
     {
@@ -84,6 +90,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"futureWeather","darkSkyData":{"latitude":48.8584,"longitude":-2.2945';
         $this->assertContains($exp, $json);
     }
+
     // Test inserting coordinates with past weather
     public function testIndexActionPostCordPast()
     {
@@ -93,6 +100,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"pastWeather","darkSkyData":[{"latitude":48.8584,"longitude":-2.2945';
         $this->assertContains($exp, $json);
     }
+
     // Test inserting unknown coordinates with past weather
     public function testIndexActionPostInvalid()
     {
@@ -102,6 +110,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":"","dataExists":false,"status":"Ok\u00e4nd plats"}';
         $this->assertContains($exp, $json);
     }
+
     // Test get IPV4 adress with future weather
     public function testWeatherCheckActionGetIPV4()
     {
@@ -111,6 +120,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"futureWeather","darkSkyData":{"latitude":37.419158935547,"longitude":-122.07540893555';
         $this->assertContains($exp, $json);
     }
+
     // Test get IPV4 adress with past weather
     public function testWeatherCheckActionGetIPV4Past()
     {
@@ -120,6 +130,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"pastWeather","darkSkyData":[{"latitude":37.419158935547,"longitude":-122.07540893555';
         $this->assertContains($exp, $json);
     }
+
     // Test get IPV6 adress with future weather
     public function testWeatherCheckActionGetIPV6()
     {
@@ -129,6 +140,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"futureWeather","darkSkyData":{"latitude":37.775001525879,"longitude":-122.41832733154';
         $this->assertContains($exp, $json);
     }
+
     // Test get IPV6 adress with past weather
     public function testWeatherCheckActionGetIPV6Past()
     {
@@ -138,6 +150,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"pastWeather","darkSkyData":[{"latitude":37.775001525879,"longitude":-122.41832733154';
         $this->assertContains($exp, $json);
     }
+
     // Test get coordinates with future weather
     public function testWeatherCheckActionGetCord()
     {
@@ -147,6 +160,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"futureWeather","darkSkyData":{"latitude":48.8584,"longitude":-2.2945';
         $this->assertContains($exp, $json);
     }
+
     // Test get coordinates with past weather
     public function testWeatherCheckActionGetCordPast()
     {
@@ -156,6 +170,7 @@ class WeatherJsonControllerTest extends TestCase
         $exp = '{"weatherJson":{"weather":"pastWeather","darkSkyData":[{"latitude":48.8584,"longitude":-2.2945';
         $this->assertContains($exp, $json);
     }
+
     // Test get unknown coordinates with past weather
     public function testWeatherCheckActionGetInvalidCordPast()
     {
@@ -164,5 +179,12 @@ class WeatherJsonControllerTest extends TestCase
         $json = $this->controller->weatherCheckActionGet();
         $exp = '{"weatherJson":"","dataExists":false,"status":"Ok\u00e4nd plats"}';
         $this->assertContains($exp, $json);
+    }
+
+    public function testCatchAll()
+    {
+        $res = $this->controller->catchAll();
+        $exp = "404 Not Found";
+        $this->assertContains($exp, $res);
     }
 }

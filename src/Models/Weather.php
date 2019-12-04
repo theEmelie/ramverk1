@@ -22,7 +22,7 @@ class Weather
             $curlObj = new Curl;
             $darkSkyData = json_decode($curlObj->curl($darkSkyUrl));
         } else {
-            // Past weather
+            // Past weather, change $numberOfDays to how many past days you wanna see the weather for.
             $numberOfDays = 30;
             for ($i = 0; $i < $numberOfDays; $i++) {
                 $timestr = "-" . $i . " day";

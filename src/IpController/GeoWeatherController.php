@@ -126,6 +126,6 @@ class GeoWeatherController implements ContainerInjectableInterface
     public function catchAll(...$args)
     {
         // Deal with the request and send an actual response, or not.
-        return;
+        return "404 Not Found";
     }
 }

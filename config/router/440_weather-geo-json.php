@@ -6,7 +6,7 @@ return [
     "routes" => [
         [
             "info" => "Weather Json Controller.",
-            "mount" => "geoWeatherJson",
+            "mount" => "weatherJson",
             "handler" => "\Anax\IpController\GeoWeatherJsonController",
         ],
     ]
